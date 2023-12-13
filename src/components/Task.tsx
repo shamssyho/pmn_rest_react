@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Task.css';
 import { Input, Stack, Button } from '@chakra-ui/react'
+import { CloseIcon, EditIcon } from '@chakra-ui/icons'
 import axios from 'axios';
 
 interface Task {
@@ -118,6 +119,8 @@ const Task: React.FC = () => {
                                 </button>
                                 <button onClick={() => deleteTask(task.id)}>Supprimer</button>
                                 <button onClick={() => editTaskHandler(task)}>Modifier</button>
+                                {/* <EditIcon color="black" onClick={() => editTaskHandler(task)} />
+                                <CloseIcon color="black" onClick={() => deleteTask(task.id)} /> */}
                             </div>
                         </li>
                     ))}
