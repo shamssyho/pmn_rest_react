@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Task.css';
 import { Input, Stack, Button } from '@chakra-ui/react'
-import { CloseIcon, EditIcon } from '@chakra-ui/icons'
 import axios from 'axios';
 
 interface Task {
@@ -92,7 +91,7 @@ const Task: React.FC = () => {
                 <h1>Todo List</h1>
 
                 <Stack spacing={8}>
-                    <Input placeholder='id' type='number' value={newTask.id} onChange={(e) => setNewTask({ ...newTask, id: Number(e.target.value) })} size='md' />
+                    {/* <Input placeholder='id' type='number' value={newTask.id} onChange={(e) => setNewTask({ ...newTask, id: Number(e.target.value) })} size='md' /> */}
                     <Input placeholder='Task' type="text" value={newTask.todo} onChange={(e) => setNewTask({ ...newTask, todo: e.target.value })} size='md' />
                     <Input placeholder='Description' type="text" value={newTask.description} onChange={(e) => setNewTask({ ...newTask, description: e.target.value })} size='md' />
                     <div>
@@ -111,7 +110,7 @@ const Task: React.FC = () => {
                 <ul>
                     {tasks.map(task => (
                         <li key={task.id} className={task.completed ? 'completed' : ''}>
-                            <h3 className='item'>{task.todo}</h3>
+                            <h3 className='item'>{task.id}. {task.todo}</h3>
                             <p className='item'>{task.description}</p>
                             <div className='buttons'>
                                 <button onClick={() => completeTask(task.id)}>
